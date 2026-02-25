@@ -37,7 +37,7 @@ services:
     container_name: frontend_builder
     volumes:
       - web_static:/app/shared_dist
-    command: sh -c "cp -rv /app/dist/. /app/shared_dist/"
+    command: sh -c "cp -rv /app/static/. /app/shared_dist/"
 
   nginx:
     image: nginx:stable-alpine
