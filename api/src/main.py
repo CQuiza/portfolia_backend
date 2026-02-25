@@ -63,6 +63,8 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title=settings.APP_NAME,
     version=settings.API_VERSION,
+    openapi_url="/openapi.json",
+    docs_url="/docs"
     lifespan=lifespan,
     description="AI-powered portfolio chatbot with RAG and web search capabilities - Cristhian Quiza",
 )
