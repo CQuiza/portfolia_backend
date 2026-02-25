@@ -61,6 +61,13 @@ services:
       - ./api/.env
     networks:
       - portfolio_network
+  
+  frontend:
+    build:
+      context: ../portfolia_frontend  
+    container_name: frontend_builder
+    volumes:
+      - web_static:/app/dist
 
   nginx:
     image: nginx:stable-alpine
@@ -69,7 +76,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ../nginx/conf.d:/etc/nginx/conf.d
+      - ../portfolia_reverse_proxy/conf.d:/etc/nginx/conf.d
       - web_static:/usr/share/nginx/html
       - certbot_etc:/etc/letsencrypt
       - certbot_var:/var/www/certbot
