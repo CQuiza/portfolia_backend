@@ -58,7 +58,7 @@ services:
     environment:
       - PYTHONUNBUFFERED=1
     env_file:
-      - ./api/.env
+      - .env
     networks:
       - portfolio_network
   
