@@ -46,7 +46,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ../portfolia_reverse_proxy/conf.d:/etc/nginx/conf.d
+      - ../portfolia_reverse_proxy/conf.d/default.conf:/etc/nginx/conf.d/default.conf:ro
       - web_static:/usr/share/nginx/html
       - certbot_etc:/etc/letsencrypt
       - certbot_var:/var/www/certbot
