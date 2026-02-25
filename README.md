@@ -299,7 +299,6 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0"]
 - [ ] Metrics and analytics
 - [ ] A/B testing of prompts
 - [ ] Rate limiting
-- [ ] JWT authentication
 
 ## 📝 Important Notes
 
@@ -308,20 +307,4 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0"]
 3. **Performance**: With local Ollama, it may be slower
 4. **Scalability**: For production, consider Qdrant cloud
 
-## 🤝 Soporte
 
-Si encuentras problemas:
-1. Revisa el `README.md` completo
-2. Consulta `QUICKSTART.md`
-3. Ejecuta `python test_chatbot.py`
-4. Verifica logs del servidor
-
-## 📄 Licencia
-
-MIT License - Usa libremente para tu portafolio
-
----
-
-**¡Éxito con tu Portfolio Chatbot! 🚀**
-
-Para cualquier duda, consulta la documentación o los comentarios en el código.
