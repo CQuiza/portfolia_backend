@@ -38,6 +38,7 @@ services:
     container_name: frontend_builder
     volumes:
       - web_static:/app/dist
+    command: sh -c "cp -r /app/dist/* /usr/share/nginx/html/ || true"
 
   nginx:
     image: nginx:stable-alpine
