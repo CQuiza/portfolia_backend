@@ -1,21 +1,25 @@
-# Web Framework & Server
+# --- Framework & Server ---
 fastapi
 uvicorn[standard]
 python-dotenv
+python-multipart
 
-# AI & LLM
+# --- Seguridad & Auth ---
+python-jose[cryptography]
+passlib[bcrypt]
+bcrypt==4.0.1
+
+# --- AI & LLM (Groq + LangChain) ---
 langchain
 langchain-community
 langchain-groq
 langchain-huggingface
 sentence-transformers
+langgraph
+tavily-python
 
-# Database & Tools
+# --- Bases de Datos & HTTP ---
 qdrant-client
 httpx
 pydantic
 pydantic-settings
-
-# Agentic (si usas grafos)
-langgraph
-tavily-python
