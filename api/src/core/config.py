@@ -23,7 +23,11 @@ class Settings(BaseSettings):
 
     # OpenAI
     OPENAI_API_KEY: Optional[str] = None
-    OPENAI_MODEL: str = "gpt-4"
+    OPENAI_MODEL: str = "gpt-4o"
+
+    # Groq
+    GROQ_API_KEY: Optional[str] = None
+    GROQ_MODEL: str 
 
     # Vector Database - Qdrant
     QDRANT_URL: str

@@ -8,6 +8,7 @@ import logging
 from typing import Literal, Sequence, TypedDict
 
 from langchain_core.messages import AIMessage, BaseMessage, HumanMessage, SystemMessage
+from langchain_groq import ChatGroq
 from langchain_ollama import ChatOllama
 from langchain_openai import ChatOpenAI
 from langgraph.graph import END, StateGraph
@@ -46,16 +47,26 @@ class PortfolioAgent:
 
     def _initialize_llm(self):
         try:
-            # use Open AI if this is provide in .env file
-            if settings.OPENAI_API_KEY:
+            # 1. Use Groq if API Key is provided
+            if settings.GROQ_API_KEY:
+                self.llm = ChatGroq(
+                    model=settings.GROQ_MODEL,
+                    temperature=0.7,
+                    api_key=settings.GROQ_API_KEY,
+                )
+                logger.info(f"Using Groq LLM: {settings.GROQ_MODEL}")
+            
+            # 2. Fallback to OpenAI if API Key is provided (Optional, keeping as secondary if requested but prioritized Groq)
+            elif settings.OPENAI_API_KEY:
                 self.llm = ChatOpenAI(
                     model=settings.OPENAI_MODEL,
                     temperature=0.7,
                     api_key=settings.OPENAI_API_KEY,
                 )
-                logger.info(f"using OpenAI LLM {settings.OPENAI_MODEL}")
+                logger.info(f"Using OpenAI LLM: {settings.OPENAI_MODEL}")
+                
+            # 3. Fallback to OLLAMA as last resort
             else:
-                # or use OLLAMA if OPENAI_API_KEY is not provide in .env file
                 self.llm = ChatOllama(
                     model=settings.OLLAMA_MODEL,
                     base_url=settings.OLLAMA_BASE_URL,
