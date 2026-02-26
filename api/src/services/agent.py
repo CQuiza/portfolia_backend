@@ -60,6 +60,7 @@ class PortfolioAgent:
                     model=settings.OLLAMA_MODEL,
                     base_url=settings.OLLAMA_BASE_URL,
                     temperature=0.7,
+                    timeout=60,
                 )
                 logger.info(f"Using OLLAMA LLM: {settings.OLLAMA_MODEL}")
         except Exception as e:

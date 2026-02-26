@@ -47,14 +47,14 @@ async def lifespan(app: FastAPI):
     """
     logger.info("Starting Portfolio Chatbot API ...")
 
-    # Init Services
-    try:
-        get_rag_service()
-        get_tavily_service()
-        get_agent()
-        logger.info("services initialized successfully")
-    except Exception as e:
-        logger.error(f"Error init services: {e}")
+    # Los servicios se inicializarán bajo demanda para evitar bloqueos
+    # try:
+    #     get_rag_service()
+    #     get_tavily_service()
+    #     get_agent()
+    #     logger.info("services initialized successfully")
+    # except Exception as e:
+    #     logger.error(f"Error init services: {e}")
 
     yield
     logger.info("----Shutdown portfolio Chatbot API----")
