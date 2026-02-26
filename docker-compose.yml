@@ -19,7 +19,7 @@ services:
     container_name: portfolio_api
     extra_hosts:
       - "host.docker.internal:host-gateway"
-    command: uvicorn src.main:app --host 0.0.0.0 --port 8000 --log-level info --reload
+    command: uvicorn src.main:app --host 0.0.0.0 --port 8000 --workers 4
     ports:
       - "8000:8000"
     volumes:
